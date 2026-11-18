@@ -31,8 +31,8 @@ When asking an AI coding agent to convert a UI screenshot into HTML/CSS, traditi
 | :--- | :--- | :--- |
 | **🖐️ Move** | Drag & reposition any UI element independently (`e.stopPropagation()`). | Double-click any element in Move mode to quick-edit its text! |
 | **🔤 Text** | Inline live editing for headings, buttons, badges, and paragraphs. | Click outside (`blur`) or switch tools to lock in changes. |
-| **🪣 Fill (ถังสี)** | Click any element or page background to fill its background color. | Hold **`Shift + Click`** to change the element's **text color** instead. |
-| **✏️ Pencil (ดินสอ)** | Draw freehand annotations, arrows, or notes over the UI canvas. | Adjust color via Color Picker and thickness via the Size Slider. |
+| **🪣 Fill (ถังสีปรับสีได้)** | Click any element or page background to fill its color using the **Shared Color Palette** (8 Quick Swatches + Custom RGB `#HEX` Picker). | Click **`🎯 เปลี่ยน: พื้นหลัง (Bg) / ตัวอักษร (Text)`** (or hold `Shift + Click`) to switch between filling background vs. text color! |
+| **✏️ Pencil (ดินสอ)** | Draw freehand annotations, arrows, or notes over the UI canvas using the **exact same shared color** as the Paint Bucket. | Adjust color via Swatches/Color Picker and thickness via the Size Slider. |
 | **🧹 Eraser (ยางลบ)** | Smoothly rub out drawn pencil strokes (`destination-out`). | Adjust eraser width using the same Size Slider. |
 | **🔄 Reset** | Restores all positions to `(0, 0)`, resets original colors & text, and clears drawings. | Smooth cubic-bezier animation back to initial layout. |
 
@@ -139,8 +139,8 @@ image-to-interactive-html/
 ### เครื่องมือทั้ง 5 โหมดใน Floating Studio Toolbar (มุมขวาบน)
 1. **🖐️ Move (ลากขยับอิสระ):** คลิกเมาส์ลากขยับทุกชิ้นส่วน (การ์ด, ปุ่ม, ป้ายสถานะ, หัวข้อ, ไอคอน) แยกอิสระจากกันโดยไม่ดึงแม่ตาม พร้อมแสดงพิกัด `X, Y` แบบสดๆ (หรือดับเบิลคลิกที่ข้อความเพื่อแก้ไขด่วน)
 2. **🔤 Text (แก้ไขข้อความ):** คลิกที่ข้อความใดก็ได้บนหน้าจอเพื่อพิมพ์แก้ไขข้อความได้ทันที (`contenteditable`)
-3. **🪣 Fill (ถังสี):** เลือกสีจาก Color Picker แล้วคลิกที่การ์ด ปุ่ม หรือพื้นหลัง เพื่อเทสีพื้นหลังใหม่ทันที (หรือกด **`Shift + คลิก`** เพื่อเปลี่ยนสีตัวอักษร!)
-4. **✏️ Pencil (วาดดินสอ):** วาดเส้นอิสระ ลูกศร หรือเขียนคอมเมนต์ทับลงบนหน้า UI ได้เลย ปรับสีและขนาดหัวปากกาได้จากแถบด้านบน
+3. **🪣 Fill (ถังสีปรับสีได้ + ใช้ระบบสีร่วมกับดินสอ):** เลือกสีได้ทันทีจาก **ปุ่มสีด่วน 8 สี (Quick Swatches)** หรือจิ้มที่ปุ่ม **`#HEX` Color Picker** เพื่อผสมสีเองแบบอิสระ โดยสีที่เลือกจะเชื่อมกับทั้ง **ถังสี (`🪣 Fill`)** และ **ดินสอ (`✏️ Pencil`)** อัตโนมัติ พร้อมปุ่มสลับโหมด **`🎯 เปลี่ยน: พื้นหลัง (Bg)` / `ตัวอักษร (Text)`** (หรือกด `Shift + คลิก`)
+4. **✏️ Pencil (วาดดินสอ):** ใช้สีเดียวกับถังสี วาดเส้นอิสระ ลูกศร หรือเขียนคอมเมนต์ทับลงบนหน้า UI ได้เลย ปรับขนาดหัวปากกาได้จากแถบ Slider
 5. **🧹 Eraser (ยางลบ):** ลบเส้นดินสอที่วาดไว้ได้อย่างสะอาด
 6. **🔄 Reset:** ปุ่มเดียวรีเซ็ตทุกอย่างกลับสู่สภาพเริ่มต้น (ตำแหน่ง `(0, 0)`, สีเดิม, ข้อความเดิม และล้างเส้นวาดทั้งหมด)
 

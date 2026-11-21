@@ -22,6 +22,7 @@ When asking an AI coding agent to convert a UI screenshot into HTML/CSS, traditi
 3. **🔤 Text (Inline Text Editing):** Click any heading, paragraph, button label, or badge to rewrite copy directly on screen (`contenteditable="true"`).
 4. **🪣 Fill (Paint Bucket):** Pick any color and click any UI element (or background) to recolor its background (`Click`) or text color (`Shift + Click`).
 5. **✏️ Pencil & 🧹 Eraser:** Sketch freehand annotations, arrows, or wireframe notes right on top of the prototype using a full-viewport transparent HTML5 `<canvas>` overlay, and erase strokes cleanly.
+6. **🌐 Auto-Popup Browser AI Preview:** Automatically spins up a local preview server and invokes the built-in **Browser AI Subagent (`browser`)** so the interactive studio pops open right inside your IDE's browser view as soon as the code is generated.
 
 ---
 
@@ -48,6 +49,7 @@ flowchart LR
     Extract --> Wire["🧲 Attach .draggable-item & Canvas Overlay"]
     Wire --> Toolbar["🧰 Inject 5-Tool Studio Bar (Move/Text/Fill/Pencil/Eraser)"]
     Toolbar --> Output["📄 Single-File index.html"]
+    Output --> BrowserAI["🌐 Auto-Launch Built-in Browser AI Subagent"]
 ```
 
 ### 1. Strict Input Validation (Guardrail)
@@ -143,6 +145,7 @@ image-to-interactive-html/
 4. **✏️ Pencil (วาดดินสอ):** ใช้สีเดียวกับถังสี วาดเส้นอิสระ ลูกศร หรือเขียนคอมเมนต์ทับลงบนหน้า UI ได้เลย ปรับขนาดหัวปากกาได้จากแถบ Slider
 5. **🧹 Eraser (ยางลบ):** ลบเส้นดินสอที่วาดไว้ได้อย่างสะอาด
 6. **🔄 Reset:** ปุ่มเดียวรีเซ็ตทุกอย่างกลับสู่สภาพเริ่มต้น (ตำแหน่ง `(0, 0)`, สีเดิม, ข้อความเดิม และล้างเส้นวาดทั้งหมด)
+7. **🌐 เด้งหน้าต่าง Browser AI อัตโนมัติ (Auto-Popup Browser Subagent):** ทันทีที่สร้างไฟล์ `.html` เสร็จ สกิลจะสั่งเปิด Local Server และเรียกตัว **Browser AI Subagent** ให้เด้งหน้าเว็บ Interactive UI ขึ้นมาให้คุณลากขยับและแก้ไขได้ทันทีโดยไม่ต้องกดเปิดไฟล์เอง
 
 ---
 

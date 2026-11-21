@@ -52,7 +52,22 @@ Include a minimal, non-intrusive floating control bar in the top-right corner co
 ## 5. Technical Constraints & Output
 
 - **Single-File Architecture:** Output everything in a single, self-contained `.html` file using embedded `<style>` and `<script>` tags (Tailwind CSS via CDN is permitted, or pure modern CSS). No external build steps or local asset dependencies.
-- **Clean Delivery:** Provide the complete HTML code (or write it directly to `index.html` if file system tools are available) followed by a brief summary of the extracted elements and interactive tools.
+- **Clean Delivery:** Write the complete HTML code directly to a `.html` file on disk (e.g., `index.html` or `interactive-ui.html`), then automatically launch it in the built-in Browser AI pane (Section 6) followed by a brief summary of the extracted elements and interactive tools.
+
+## 6. Auto-Launch Live Preview in Built-in Browser AI (`browser` Subagent)
+
+Immediately after writing the generated `.html` file to disk, **automatically pop open the built-in Browser AI pane** so the user can interact with the UI right away without opening files manually:
+
+1. **Start a Background Local Server (`IsDaemon: true`):**
+   - Run a lightweight local HTTP server in the directory containing the generated `.html` file using `run_command` with `IsDaemon: true` and `WaitMsBeforeAsync: 1000` (for example: `python -m http.server 8765` or `npx --yes serve -l 8765`).
+2. **Invoke the Built-in `browser` Subagent (`invoke_subagent`):**
+   - Immediately call `invoke_subagent` with:
+     - `TypeName: "browser"`
+     - `Role: "Interactive UI Previewer"`
+     - `Model: "flash"`
+     - `Prompt`: Instruct the browser subagent to navigate to `http://localhost:8765/<filename>.html`, verify that the UI card/layout and the top-right `#floating-toolbar` (`Move`, `Text`, `Fill`, `Pencil`, `Eraser`) are visible and rendered properly, and leave the tab open for the user to interact with.
+3. **Fallback (Non-Antigravity Environments):**
+   - Only if the `invoke_subagent` tool is unavailable in the host agent environment, open the generated `.html` file using the OS default browser.
 
 ## Reference Implementation Pattern (Multi-Tool Engine & Unified Color System)
 
